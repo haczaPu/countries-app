@@ -1,21 +1,33 @@
 import "./style/style.css";
 import { useEffect, useState } from "react";
 import Country from "./components/Country";
+import RegionSelect from "./components/RegionSelect";
+import { FaSistrix, FaRegMoon, FaMoon } from "react-icons/fa";
 
 function App() {
   const [allCountries, setAllCountries] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState([]);
   const [search, setSearch] = useState("");
-  const [region, setRegion] = useState(1);
+  const [region, setRegion] = useState("");
 
-  // Fetch API data
+  // First fetch API data
   useEffect(() => {
     const getCountries = async () => {
       const response = await fetch("https://restcountries.eu/rest/v2/all");
       const data = await response.json();
       setAllCountries(data);
+      setFilteredCountries(data);
     };
     getCountries();
   }, []);
+
+  // Filter countries by region
+  const regionFilteredCountries = allCountries.filter(country => {
+    if (country.name.toLowerCase().includes(search.toLocaleLowerCase())) {
+      return country.region.includes(region);
+    }
+    return false;
+  });
 
   // Search bar
   const searchHandle = e => {
@@ -23,31 +35,40 @@ function App() {
   };
 
   // Search bar filtering
-  const filteredCountries = allCountries.filter(country => {
-    return country.name.toLowerCase().includes(search.toLocaleLowerCase());
+  const searchFilteredCountries = allCountries.filter(country => {
+    if (country.region.includes(region)) {
+      return country.name.toLowerCase().includes(search.toLocaleLowerCase());
+    }
+    return false;
   });
 
-  const changeRegionHandler = e => {
-    e.preventDefault();
-    setRegion(e.target.value);
-  };
+  useEffect(() => {
+    setFilteredCountries(searchFilteredCountries);
+  }, [search]);
+
+  useEffect(() => {
+    setFilteredCountries(regionFilteredCountries);
+  }, [region]);
 
   return (
     <div className="App">
-      <header>Where in the world?</header>
+      <header>
+        <div>Where in the world?</div>
+        <div className="theme-toggler">
+          <FaMoon size={14} />
+          <div>Dark Mode</div>
+        </div>
+      </header>
       <main>
         <nav>
-          <input type="text" placeholder="Search for a country..." onChange={searchHandle}></input>
-          <form>
-            <select className="region" defaultValue="Filter by Region" onChange={changeRegionHandler}>
-              <option value="1">All</option>
-              <option value="2">Africa</option>
-              <option value="3">America</option>
-              <option value="4">Asia</option>
-              <option value="5">Europe</option>
-              <option value="6">Oceania</option>
-            </select>
-          </form>
+          <div className="search">
+            <div>
+              <FaSistrix color="white" size={25} rotation={90} />
+            </div>
+
+            <input type="text" placeholder="Search for a country..." onChange={searchHandle}></input>
+          </div>
+          <RegionSelect setRegion={setRegion} />
         </nav>
         <div className="countries-container">
           {filteredCountries.map((country, index) => (

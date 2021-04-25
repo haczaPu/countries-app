@@ -19,9 +19,21 @@ body {
     padding: 0 80px;
     font-weight: 800;
     font-size: 28px;
-    padding-top: 22px;
     color: $text-color;
     border-radius: 0 0 5px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .theme-toggler {
+      font-size: 18px;
+      font-weight: 600;
+
+      div {
+        padding-left: 10px;
+        display: inline;
+      }
+    }
   }
 
   main {
@@ -32,25 +44,50 @@ body {
     nav {
       display: flex;
       justify-content: space-between;
-      input {
+
+      .search {
+        background-color: $pri-very-dark-blue;
+        border-radius: 5px;
         width: 500px;
         height: 56px;
-        border: none;
-        border-radius: 5px;
-        background-color: $pri-very-dark-blue;
-        font-family: "Nunito Sans", sans-serif;
-        font-weight: 300;
-        outline: none;
-        padding-left: 60px;
-        color: $text-color;
-        &::placeholder {
+        display: flex;
+        align-items: center;
+
+        div {
+          padding-left: 30px;
+        }
+
+        input {
+          border: none;
+
+          font-family: "Nunito Sans", sans-serif;
+          background-color: $pri-very-dark-blue;
+          font-weight: 300;
+          outline: none;
+          padding-left: 30px;
           color: $text-color;
+
+          &::placeholder {
+            color: $text-color;
+          }
         }
       }
 
       .region {
-        width: 100px;
-        background-color: aquamarine;
+        width: 200px;
+        height: 56px;
+        background-color: $pri-very-dark-blue;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        color: $text-color;
+        padding-left: 18px;
+        option {
+          background-color: $pri-very-dark-blue;
+          margin-top: 5px;
+          outline: none;
+          border: none;
+        }
       }
     }
 

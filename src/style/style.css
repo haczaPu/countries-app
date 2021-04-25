@@ -16,9 +16,27 @@ body {
   padding: 0 80px;
   font-weight: 800;
   font-size: 28px;
-  padding-top: 22px;
   color: white;
   border-radius: 0 0 5px 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App header .theme-toggler {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.App header .theme-toggler div {
+  padding-left: 10px;
+  display: inline;
 }
 
 .App main {
@@ -36,38 +54,65 @@ body {
           justify-content: space-between;
 }
 
-.App main nav input {
+.App main nav .search {
+  background-color: #2b3945;
+  border-radius: 5px;
   width: 500px;
   height: 56px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App main nav .search div {
+  padding-left: 30px;
+}
+
+.App main nav .search input {
   border: none;
-  border-radius: 5px;
-  background-color: #2b3945;
   font-family: "Nunito Sans", sans-serif;
+  background-color: #2b3945;
   font-weight: 300;
   outline: none;
-  padding-left: 60px;
+  padding-left: 30px;
   color: white;
 }
 
-.App main nav input::-webkit-input-placeholder {
+.App main nav .search input::-webkit-input-placeholder {
   color: white;
 }
 
-.App main nav input:-ms-input-placeholder {
+.App main nav .search input:-ms-input-placeholder {
   color: white;
 }
 
-.App main nav input::-ms-input-placeholder {
+.App main nav .search input::-ms-input-placeholder {
   color: white;
 }
 
-.App main nav input::placeholder {
+.App main nav .search input::placeholder {
   color: white;
 }
 
 .App main nav .region {
-  width: 100px;
-  background-color: aquamarine;
+  width: 200px;
+  height: 56px;
+  background-color: #2b3945;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding-left: 18px;
+}
+
+.App main nav .region option {
+  background-color: #2b3945;
+  margin-top: 5px;
+  outline: none;
+  border: none;
 }
 
 .App main .countries-container {
