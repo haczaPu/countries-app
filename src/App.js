@@ -21,34 +21,32 @@ function App() {
     getCountries();
   }, []);
 
-  // Filter countries by region
-  const regionFilteredCountries = allCountries.filter(country => {
-    if (country.name.toLowerCase().includes(search.toLocaleLowerCase())) {
-      return country.region.includes(region);
-    }
-    return false;
-  });
-
   // Search bar
   const searchHandle = e => {
     setSearch(e.target.value);
   };
 
-  // Search bar filtering
-  const searchFilteredCountries = allCountries.filter(country => {
-    if (country.region.includes(region)) {
-      return country.name.toLowerCase().includes(search.toLocaleLowerCase());
-    }
-    return false;
-  });
-
+  // Name filtering
   useEffect(() => {
+    const searchFilteredCountries = allCountries.filter(country => {
+      if (country.region.includes(region)) {
+        return country.name.toLowerCase().includes(search.toLocaleLowerCase());
+      }
+      return false;
+    });
     setFilteredCountries(searchFilteredCountries);
-  }, [search]);
+  }, [allCountries, region, search]);
 
+  // Region filtering
   useEffect(() => {
+    const regionFilteredCountries = allCountries.filter(country => {
+      if (country.name.toLowerCase().includes(search.toLocaleLowerCase())) {
+        return country.region.includes(region);
+      }
+      return false;
+    });
     setFilteredCountries(regionFilteredCountries);
-  }, [region]);
+  }, [allCountries, region, search]);
 
   return (
     <div className="App">
