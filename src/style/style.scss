@@ -2,6 +2,10 @@ $bg-very-dark-blue: hsl(207, 26%, 17%);
 $pri-very-dark-blue: hsl(209, 23%, 22%);
 $text-color: white;
 
+html {
+  margin-left: calc(100vw - 100%);
+}
+
 body {
   background-color: $bg-very-dark-blue;
   font-family: "Nunito Sans", sans-serif;
@@ -21,9 +25,19 @@ body {
     font-size: 28px;
     color: $text-color;
     border-radius: 0 0 5px 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .title {
+      text-decoration: "none";
+      color: $text-color;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
 
     .theme-toggler {
       font-size: 18px;
@@ -38,7 +52,6 @@ body {
 
   main {
     max-width: 1440px;
-    background-color: $bg-very-dark-blue;
     padding: 50px 80px;
 
     nav {
@@ -52,6 +65,7 @@ body {
         height: 56px;
         display: flex;
         align-items: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 
         div {
           padding-left: 30px;
@@ -59,7 +73,6 @@ body {
 
         input {
           border: none;
-
           font-family: "Nunito Sans", sans-serif;
           background-color: $pri-very-dark-blue;
           font-weight: 300;
@@ -82,6 +95,8 @@ body {
         border-radius: 5px;
         color: $text-color;
         padding-left: 18px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+
         option {
           background-color: $pri-very-dark-blue;
           margin-top: 5px;
@@ -98,13 +113,14 @@ body {
       margin-top: 50px;
 
       .country {
-        min-width: 265px;
+        width: 265px;
         height: 335px;
         color: $text-color;
         background-color: $pri-very-dark-blue;
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
         overflow: hidden;
+        text-decoration: none;
 
         .country-description {
           padding: 0 25px;
@@ -135,6 +151,98 @@ body {
           height: 165px;
           object-fit: cover;
           overflow: hidden;
+        }
+      }
+    }
+
+    .detail-country-container {
+      .btn-back {
+        margin-top: 30px;
+        width: 135px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $text-color;
+        background-color: $pri-very-dark-blue;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+      }
+
+      .detail-country-data-wrapper {
+        color: $text-color;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 80px;
+
+        img {
+          width: 560px;
+          height: 400px;
+          object-fit: contain;
+        }
+
+        .detail-country-data {
+          width: 560px;
+          display: flex;
+          flex-direction: column;
+
+          section {
+            display: flex;
+            margin-top: 20px;
+
+            ul {
+              display: flex;
+              flex-direction: column;
+
+              &:last-child {
+                margin-left: 100px;
+              }
+
+              li {
+                display: flex;
+                font-weight: 600;
+                line-height: 25px;
+                margin-top: 5px;
+
+                div {
+                  font-weight: 300;
+                  &::before {
+                    content: "\2002";
+                  }
+                }
+
+                .country-languages {
+                  display: flex;
+                }
+              }
+            }
+          }
+
+          .border-countries {
+            margin-top: 60px;
+            display: flex;
+
+            .border-countries-links {
+              display: flex;
+
+              .border-country-btn {
+                width: 100px;
+                height: 30px;
+                color: $text-color;
+                background-color: $pri-very-dark-blue;
+                text-align: center;
+                padding-top: 3px;
+                margin-left: 10px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+              }
+            }
+
+            div:first-child {
+              font-weight: 300;
+            }
+          }
         }
       }
     }

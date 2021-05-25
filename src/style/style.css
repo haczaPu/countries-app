@@ -1,3 +1,7 @@
+html {
+  margin-left: calc(100vw - 100%);
+}
+
 body {
   background-color: #202c37;
   font-family: "Nunito Sans", sans-serif;
@@ -18,6 +22,8 @@ body {
   font-size: 28px;
   color: white;
   border-radius: 0 0 5px 5px;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,6 +33,16 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.App header .title {
+  -webkit-text-decoration: "none";
+          text-decoration: "none";
+  color: white;
+}
+
+.App header .title:hover {
+  text-decoration: underline;
 }
 
 .App header .theme-toggler {
@@ -41,7 +57,6 @@ body {
 
 .App main {
   max-width: 1440px;
-  background-color: #202c37;
   padding: 50px 80px;
 }
 
@@ -65,6 +80,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
 .App main nav .search div {
@@ -106,6 +123,8 @@ body {
   border-radius: 5px;
   color: white;
   padding-left: 18px;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
 .App main nav .region option {
@@ -125,7 +144,7 @@ body {
 }
 
 .App main .countries-container .country {
-  min-width: 265px;
+  width: 265px;
   height: 335px;
   color: white;
   background-color: #2b3945;
@@ -133,6 +152,7 @@ body {
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   overflow: hidden;
+  text-decoration: none;
 }
 
 .App main .countries-container .country .country-description {
@@ -167,5 +187,131 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
   overflow: hidden;
+}
+
+.App main .detail-country-container .btn-back {
+  margin-top: 30px;
+  width: 135px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  background-color: #2b3945;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.App main .detail-country-container .detail-country-data-wrapper {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 80px;
+}
+
+.App main .detail-country-container .detail-country-data-wrapper img {
+  width: 560px;
+  height: 400px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data {
+  width: 560px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+}
+
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul:last-child {
+  margin-left: 100px;
+}
+
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 600;
+  line-height: 25px;
+  margin-top: 5px;
+}
+
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li div {
+  font-weight: 300;
+}
+
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li div::before {
+  content: "\2002";
+}
+
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li .country-languages {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries {
+  margin-top: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
+  width: 100px;
+  height: 30px;
+  color: white;
+  background-color: #2b3945;
+  text-align: center;
+  padding-top: 3px;
+  margin-left: 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries div:first-child {
+  font-weight: 300;
 }
 /*# sourceMappingURL=style.css.map */

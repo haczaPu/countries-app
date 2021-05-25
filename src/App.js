@@ -1,8 +1,13 @@
 import "./style/style.css";
 import { useEffect, useState } from "react";
-import Country from "./components/Country";
 import RegionSelect from "./components/RegionSelect";
-import { FaSistrix, FaRegMoon, FaMoon } from "react-icons/fa";
+import { FaSistrix } from "react-icons/fa";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import CountriesList from "./components/CountriesList";
+import Header from "./components/Header";
+import DetailCountry from "./components/DetailCountry";
+
+/////FaRegMoon
 
 function App() {
   const [allCountries, setAllCountries] = useState([]);
@@ -10,7 +15,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("");
 
-  // First fetch API data
+  // Fetch API data
   useEffect(() => {
     const getCountries = async () => {
       const response = await fetch("https://restcountries.eu/rest/v2/all");
@@ -50,37 +55,30 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <div>Where in the world?</div>
-        <div className="theme-toggler">
-          <FaMoon size={14} />
-          <div>Dark Mode</div>
-        </div>
-      </header>
-      <main>
-        <nav>
-          <div className="search">
-            <div>
-              <FaSistrix color="white" size={25} rotation={90} />
-            </div>
-
-            <input type="text" placeholder="Search for a country..." onChange={searchHandle}></input>
-          </div>
-          <RegionSelect setRegion={setRegion} />
-        </nav>
-        <div className="countries-container">
-          {filteredCountries.map((country, index) => (
-            <Country
-              key={index}
-              flag={country.flag}
-              name={country.name}
-              population={country.population}
-              region={country.region}
-              capital={country.capital}
-            />
-          ))}
-        </div>
-      </main>
+      <Router>
+        <Route path="/" component={Header} />
+        <main>
+          <Route path="/" exact>
+            <nav>
+              <div className="search">
+                <div>
+                  <FaSistrix color="white" size={25} rotation={90} />
+                </div>
+                <input type="text" placeholder="Search for a country..." onChange={searchHandle}></input>
+              </div>
+              <RegionSelect setRegion={setRegion} />
+            </nav>
+          </Route>
+          <Switch>
+            <Route path="/" exact>
+              <CountriesList filteredCountries={filteredCountries} />
+            </Route>
+            <Route path="/:id">
+              <DetailCountry filteredCountries={filteredCountries} />
+            </Route>
+          </Switch>
+        </main>
+      </Router>
     </div>
   );
 }
