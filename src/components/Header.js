@@ -2,7 +2,7 @@ import React from "react";
 import { FaMoon } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ handleToggleTheme }) => {
   return (
     <header>
       <Link to={`/`} style={{ textDecoration: "none" }}>
@@ -10,7 +10,7 @@ const Header = () => {
       </Link>
       <div className="theme-toggler">
         <FaMoon size={14} />
-        <div>Dark Mode</div>
+        <div onClick={handleToggleTheme}>Dark Mode</div>
       </div>
     </header>
   );

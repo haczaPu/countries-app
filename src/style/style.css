@@ -3,24 +3,28 @@ html {
 }
 
 body {
-  background-color: #202c37;
   font-family: "Nunito Sans", sans-serif;
 }
 
-.App {
-  background-color: #202c37;
+body .App {
   margin: auto;
   max-width: 1440px;
 }
 
-.App header {
+.theme-light body .App {
+  background-color: #fafafa;
+}
+
+.theme-dark body .App {
+  background-color: #202c37;
+}
+
+body .App header {
   max-width: 1440px;
   height: 80px;
-  background-color: #2b3945;
   padding: 0 80px;
   font-weight: 800;
   font-size: 28px;
-  color: white;
   border-radius: 0 0 5px 5px;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
@@ -35,32 +39,49 @@ body {
           align-items: center;
 }
 
-.App header .title {
-  -webkit-text-decoration: "none";
-          text-decoration: "none";
+.theme-light body .App header {
+  background-color: #fafafa;
+  color: #111517;
+}
+
+.theme-dark body .App header {
+  background-color: #202c37;
   color: white;
 }
 
-.App header .title:hover {
+body .App header .title {
+  -webkit-text-decoration: "none";
+          text-decoration: "none";
+}
+
+.theme-light body .App header .title {
+  color: #111517;
+}
+
+.theme-dark body .App header .title {
+  color: white;
+}
+
+body .App header .title:hover {
   text-decoration: underline;
 }
 
-.App header .theme-toggler {
+body .App header .theme-toggler {
   font-size: 18px;
   font-weight: 600;
 }
 
-.App header .theme-toggler div {
+body .App header .theme-toggler div {
   padding-left: 10px;
   display: inline;
 }
 
-.App main {
+body .App main {
   max-width: 1440px;
   padding: 50px 80px;
 }
 
-.App main nav {
+body .App main nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -69,8 +90,7 @@ body {
           justify-content: space-between;
 }
 
-.App main nav .search {
-  background-color: #2b3945;
+body .App main nav .search {
   border-radius: 5px;
   width: 500px;
   height: 56px;
@@ -84,57 +104,104 @@ body {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-.App main nav .search div {
+.theme-light body .App main nav .search {
+  background-color: #fafafa;
+}
+
+.theme-dark body .App main nav .search {
+  background-color: #202c37;
+}
+
+body .App main nav .search div {
   padding-left: 30px;
 }
 
-.App main nav .search input {
+body .App main nav .search input {
   border: none;
   font-family: "Nunito Sans", sans-serif;
-  background-color: #2b3945;
   font-weight: 300;
   outline: none;
   padding-left: 30px;
+}
+
+.theme-light body .App main nav .search input {
+  color: #111517;
+  background-color: #fafafa;
+}
+
+.theme-dark body .App main nav .search input {
+  color: white;
+  background-color: #202c37;
+}
+
+.theme-light body .App main nav .search input::-webkit-input-placeholder {
+  color: #858585;
+}
+
+.theme-light body .App main nav .search input:-ms-input-placeholder {
+  color: #858585;
+}
+
+.theme-light body .App main nav .search input::-ms-input-placeholder {
+  color: #858585;
+}
+
+.theme-light body .App main nav .search input::placeholder {
+  color: #858585;
+}
+
+.theme-dark body .App main nav .search input::-webkit-input-placeholder {
   color: white;
 }
 
-.App main nav .search input::-webkit-input-placeholder {
+.theme-dark body .App main nav .search input:-ms-input-placeholder {
   color: white;
 }
 
-.App main nav .search input:-ms-input-placeholder {
+.theme-dark body .App main nav .search input::-ms-input-placeholder {
   color: white;
 }
 
-.App main nav .search input::-ms-input-placeholder {
+.theme-dark body .App main nav .search input::placeholder {
   color: white;
 }
 
-.App main nav .search input::placeholder {
-  color: white;
-}
-
-.App main nav .region {
+body .App main nav .region {
   width: 200px;
   height: 56px;
-  background-color: #2b3945;
   outline: none;
   border: none;
   border-radius: 5px;
-  color: white;
   padding-left: 18px;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-.App main nav .region option {
-  background-color: #2b3945;
+.theme-light body .App main nav .region {
+  color: #111517;
+  background-color: #fafafa;
+}
+
+.theme-dark body .App main nav .region {
+  color: white;
+  background-color: #202c37;
+}
+
+body .App main nav .region option {
   margin-top: 5px;
   outline: none;
   border: none;
 }
 
-.App main .countries-container {
+.theme-light body .App main nav .region option {
+  background-color: #fafafa;
+}
+
+.theme-dark body .App main nav .region option {
+  background-color: #202c37;
+}
+
+body .App main .countries-container {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(240px, 1fr))[auto-fill];
@@ -143,11 +210,9 @@ body {
   margin-top: 50px;
 }
 
-.App main .countries-container .country {
+body .App main .countries-container .country {
   width: 265px;
   height: 335px;
-  color: white;
-  background-color: #2b3945;
   border-radius: 5px;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
@@ -155,17 +220,27 @@ body {
   text-decoration: none;
 }
 
-.App main .countries-container .country .country-description {
+.theme-light body .App main .countries-container .country {
+  color: #111517;
+  background-color: #fafafa;
+}
+
+.theme-dark body .App main .countries-container .country {
+  color: white;
+  background-color: #202c37;
+}
+
+body .App main .countries-container .country .country-description {
   padding: 0 25px;
 }
 
-.App main .countries-container .country .country-description .country-description-name {
+body .App main .countries-container .country .country-description .country-description-name {
   padding: 15px 0;
   font-size: 18px;
   font-weight: 800;
 }
 
-.App main .countries-container .country .country-description li {
+body .App main .countries-container .country .country-description li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -173,15 +248,15 @@ body {
   line-height: 25px;
 }
 
-.App main .countries-container .country .country-description li div:first-child {
+body .App main .countries-container .country .country-description li div:first-child {
   font-weight: 300;
 }
 
-.App main .countries-container .country .country-description li div:first-child::before {
+body .App main .countries-container .country .country-description li div:first-child::before {
   content: "\2002";
 }
 
-.App main .countries-container .country img {
+body .App main .countries-container .country img {
   width: 100%;
   height: 165px;
   -o-object-fit: cover;
@@ -189,7 +264,7 @@ body {
   overflow: hidden;
 }
 
-.App main .detail-country-container .btn-back {
+body .App main .detail-country-container .btn-back {
   margin-top: 30px;
   width: 135px;
   height: 40px;
@@ -202,15 +277,22 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: white;
-  background-color: #2b3945;
   border-radius: 5px;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-.App main .detail-country-container .detail-country-data-wrapper {
+.theme-light body .App main .detail-country-container .btn-back {
+  color: #111517;
+  background-color: #fafafa;
+}
+
+.theme-dark body .App main .detail-country-container .btn-back {
   color: white;
+  background-color: #202c37;
+}
+
+body .App main .detail-country-container .detail-country-data-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -223,14 +305,22 @@ body {
   margin-top: 80px;
 }
 
-.App main .detail-country-container .detail-country-data-wrapper img {
+.theme-light body .App main .detail-country-container .detail-country-data-wrapper {
+  color: #111517;
+}
+
+.theme-dark body .App main .detail-country-container .detail-country-data-wrapper {
+  color: white;
+}
+
+body .App main .detail-country-container .detail-country-data-wrapper img {
   width: 560px;
   height: 400px;
   -o-object-fit: contain;
      object-fit: contain;
 }
 
-.App main .detail-country-container .detail-country-data-wrapper .detail-country-data {
+body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data {
   width: 560px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -241,14 +331,14 @@ body {
           flex-direction: column;
 }
 
-.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section {
+body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-top: 20px;
 }
 
-.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul {
+body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -258,11 +348,11 @@ body {
           flex-direction: column;
 }
 
-.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul:last-child {
+body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul:last-child {
   margin-left: 100px;
 }
 
-.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li {
+body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -271,38 +361,36 @@ body {
   margin-top: 5px;
 }
 
-.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li div {
+body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li div {
   font-weight: 300;
 }
 
-.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li div::before {
+body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li div::before {
   content: "\2002";
 }
 
-.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li .country-languages {
+body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li .country-languages {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries {
+body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries {
   margin-top: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links {
+body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
+body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
   width: 100px;
   height: 30px;
-  color: white;
-  background-color: #2b3945;
   text-align: center;
   padding-top: 3px;
   margin-left: 10px;
@@ -311,7 +399,17 @@ body {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-.App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries div:first-child {
+.theme-light body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
+  color: #111517;
+  background-color: #fafafa;
+}
+
+.theme-dark body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
+  color: white;
+  background-color: #202c37;
+}
+
+body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries div:first-child {
   font-weight: 300;
 }
 /*# sourceMappingURL=style.css.map */

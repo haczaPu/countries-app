@@ -1,19 +1,18 @@
 import "./style/style.css";
 import { useEffect, useState } from "react";
 import RegionSelect from "./components/RegionSelect";
-import { FaSistrix } from "react-icons/fa";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import CountriesList from "./components/CountriesList";
 import Header from "./components/Header";
 import DetailCountry from "./components/DetailCountry";
-
-/////FaRegMoon
+import SearchInput from "./components/SearchInput";
 
 function App() {
   const [allCountries, setAllCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
 
   // Fetch API data
   useEffect(() => {
@@ -25,11 +24,6 @@ function App() {
     };
     getCountries();
   }, []);
-
-  // Search bar
-  const searchHandle = e => {
-    setSearch(e.target.value);
-  };
 
   // Name filtering
   useEffect(() => {
@@ -53,19 +47,22 @@ function App() {
     setFilteredCountries(regionFilteredCountries);
   }, [allCountries, region, search]);
 
+  const handleToggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
+
+  //{`${darkMode ? "theme-dark" : "theme-light"}`}
+
   return (
-    <div className="App">
+    <div className={`${darkMode ? "App theme-dark" : "App theme-light"}`}>
       <Router>
-        <Route path="/" component={Header} />
+        <Route path="/">
+          <Header handleToggleTheme={handleToggleTheme} />
+        </Route>
         <main>
           <Route path="/" exact>
             <nav>
-              <div className="search">
-                <div>
-                  <FaSistrix color="white" size={25} rotation={90} />
-                </div>
-                <input type="text" placeholder="Search for a country..." onChange={searchHandle}></input>
-              </div>
+              <SearchInput setSearch={setSearch} />
               <RegionSelect setRegion={setRegion} />
             </nav>
           </Route>

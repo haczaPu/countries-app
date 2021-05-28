@@ -1,0 +1,49 @@
+//Light theme
+$pri-white: rgb(67, 57, 112);
+$bg-very-light-grey: hsl(0, 0%, 98%);
+$sec-dark-grey: hsl(0, 0%, 52%);
+$text-color-dark: hsl(200, 15%, 8%);
+
+//Dark theme
+$pri-very-dark-blue: hsl(209, 23%, 22%);
+$bg-very-dark-blue: hsl(207, 26%, 17%);
+$text-color-white: white;
+
+//themes
+$themes: (
+  light: (
+    color-pri: $pri-white,
+    color-bg: $bg-very-light-grey,
+    color-sec: $sec-dark-grey,
+    color-text: $text-color-dark,
+  ),
+  dark: (
+    color-pri: $pri-very-dark-blue,
+    color-bg: $bg-very-dark-blue,
+    color-sec: $text-color-white,
+    color-text: $text-color-white,
+  ),
+);
+
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
