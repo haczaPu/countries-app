@@ -47,14 +47,19 @@ function App() {
     setFilteredCountries(regionFilteredCountries);
   }, [allCountries, region, search]);
 
+  //Theme toggler
   const handleToggleTheme = () => {
-    setDarkMode(!darkMode);
+    if (!darkMode) {
+      document.body.setAttribute("data-theme", "dark");
+      setDarkMode(true);
+    } else {
+      document.body.setAttribute("data-theme", "light");
+      setDarkMode(false);
+    }
   };
 
-  //{`${darkMode ? "theme-dark" : "theme-light"}`}
-
   return (
-    <div className={`${darkMode ? "App theme-dark" : "App theme-light"}`}>
+    <div className="App">
       <Router>
         <Route path="/">
           <Header handleToggleTheme={handleToggleTheme} />

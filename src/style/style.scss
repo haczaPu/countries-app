@@ -1,4 +1,4 @@
-@import "themes";
+@import "vars";
 
 html {
   margin-left: calc(100vw - 100%);
@@ -6,24 +6,18 @@ html {
 
 body {
   font-family: "Nunito Sans", sans-serif;
-  // @include themify($themes) {
-  //   background-color: themed("color-bg");
-  // }
+  width: 100%;
+  background-color: $bg-primary;
 
   .App {
     margin: auto;
-    @include themify($themes) {
-      background-color: themed("color-bg");
-    }
     max-width: 1440px;
 
     header {
       max-width: 1440px;
       height: 80px;
-      @include themify($themes) {
-        background-color: themed("color-bg");
-        color: themed("color-text");
-      }
+      background-color: $bg-elements;
+      color: $c-text-pri;
       padding: 0 80px;
       font-weight: 800;
       font-size: 28px;
@@ -35,16 +29,14 @@ body {
 
       .title {
         text-decoration: "none";
-        @include themify($themes) {
-          color: themed("color-text");
-        }
-
+        color: $c-text-pri;
         &:hover {
           text-decoration: underline;
         }
       }
 
       .theme-toggler {
+        cursor: pointer;
         font-size: 18px;
         font-weight: 600;
 
@@ -64,9 +56,8 @@ body {
         justify-content: space-between;
 
         .search {
-          @include themify($themes) {
-            background-color: themed("color-bg");
-          }
+          background-color: $bg-elements;
+
           border-radius: 5px;
           width: 500px;
           height: 56px;
@@ -84,24 +75,17 @@ body {
             font-weight: 300;
             outline: none;
             padding-left: 30px;
-            @include themify($themes) {
-              color: themed("color-text");
-              background-color: themed("color-bg");
-            }
-
+            color: $c-text-sec;
+            background-color: $bg-elements;
             &::placeholder {
-              @include themify($themes) {
-                color: themed("color-sec");
-              }
+              color: $c-text-sec;
             }
           }
         }
 
         .region {
-          @include themify($themes) {
-            color: themed("color-text");
-            background-color: themed("color-bg");
-          }
+          color: $c-text-pri;
+          background-color: $bg-elements;
           width: 200px;
           height: 56px;
           outline: none;
@@ -111,9 +95,7 @@ body {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 
           option {
-            @include themify($themes) {
-              background-color: themed("color-bg");
-            }
+            background-color: $bg-elements;
             margin-top: 5px;
             outline: none;
             border: none;
@@ -128,10 +110,8 @@ body {
         margin-top: 50px;
 
         .country {
-          @include themify($themes) {
-            color: themed("color-text");
-            background-color: themed("color-bg");
-          }
+          color: $c-text-pri;
+          background-color: $bg-elements;
           width: 265px;
           height: 335px;
           border-radius: 5px;
@@ -174,10 +154,9 @@ body {
 
       .detail-country-container {
         .btn-back {
-          @include themify($themes) {
-            color: themed("color-text");
-            background-color: themed("color-bg");
-          }
+          color: $c-text-pri;
+          background-color: $bg-elements;
+
           margin-top: 30px;
           width: 135px;
           height: 40px;
@@ -189,9 +168,7 @@ body {
         }
 
         .detail-country-data-wrapper {
-          @include themify($themes) {
-            color: themed("color-text");
-          }
+          color: $c-text-pri;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -248,10 +225,8 @@ body {
                 display: flex;
 
                 .border-country-btn {
-                  @include themify($themes) {
-                    color: themed("color-text");
-                    background-color: themed("color-bg");
-                  }
+                  color: $c-text-pri;
+                  background-color: $bg-elements;
                   width: 100px;
                   height: 30px;
                   text-align: center;

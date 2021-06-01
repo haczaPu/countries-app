@@ -1,9 +1,25 @@
+body[data-theme="light"] {
+  --bg-primary: hsl(0, 0%, 98%);
+  --bg-elements: white;
+  --c-text-pri: hsl(200, 15%, 8%);
+  --c-text-sec: hsl(0, 0%, 52%);
+}
+
+body[data-theme="dark"] {
+  --bg-primary: hsl(207, 26%, 17%);
+  --bg-elements: hsl(209, 23%, 22%);
+  --c-text-pri: white;
+  --c-text-sec: white;
+}
+
 html {
   margin-left: calc(100vw - 100%);
 }
 
 body {
   font-family: "Nunito Sans", sans-serif;
+  width: 100%;
+  background-color: var(--bg-primary);
 }
 
 body .App {
@@ -11,17 +27,11 @@ body .App {
   max-width: 1440px;
 }
 
-.theme-light body .App {
-  background-color: #fafafa;
-}
-
-.theme-dark body .App {
-  background-color: #202c37;
-}
-
 body .App header {
   max-width: 1440px;
   height: 80px;
+  background-color: var(--bg-elements);
+  color: var(--c-text-pri);
   padding: 0 80px;
   font-weight: 800;
   font-size: 28px;
@@ -39,27 +49,10 @@ body .App header {
           align-items: center;
 }
 
-.theme-light body .App header {
-  background-color: #fafafa;
-  color: #111517;
-}
-
-.theme-dark body .App header {
-  background-color: #202c37;
-  color: white;
-}
-
 body .App header .title {
   -webkit-text-decoration: "none";
           text-decoration: "none";
-}
-
-.theme-light body .App header .title {
-  color: #111517;
-}
-
-.theme-dark body .App header .title {
-  color: white;
+  color: var(--c-text-pri);
 }
 
 body .App header .title:hover {
@@ -67,6 +60,7 @@ body .App header .title:hover {
 }
 
 body .App header .theme-toggler {
+  cursor: pointer;
   font-size: 18px;
   font-weight: 600;
 }
@@ -91,6 +85,7 @@ body .App main nav {
 }
 
 body .App main nav .search {
+  background-color: var(--bg-elements);
   border-radius: 5px;
   width: 500px;
   height: 56px;
@@ -104,14 +99,6 @@ body .App main nav .search {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-.theme-light body .App main nav .search {
-  background-color: #fafafa;
-}
-
-.theme-dark body .App main nav .search {
-  background-color: #202c37;
-}
-
 body .App main nav .search div {
   padding-left: 30px;
 }
@@ -122,51 +109,29 @@ body .App main nav .search input {
   font-weight: 300;
   outline: none;
   padding-left: 30px;
+  color: var(--c-text-sec);
+  background-color: var(--bg-elements);
 }
 
-.theme-light body .App main nav .search input {
-  color: #111517;
-  background-color: #fafafa;
+body .App main nav .search input::-webkit-input-placeholder {
+  color: var(--c-text-sec);
 }
 
-.theme-dark body .App main nav .search input {
-  color: white;
-  background-color: #202c37;
+body .App main nav .search input:-ms-input-placeholder {
+  color: var(--c-text-sec);
 }
 
-.theme-light body .App main nav .search input::-webkit-input-placeholder {
-  color: #858585;
+body .App main nav .search input::-ms-input-placeholder {
+  color: var(--c-text-sec);
 }
 
-.theme-light body .App main nav .search input:-ms-input-placeholder {
-  color: #858585;
-}
-
-.theme-light body .App main nav .search input::-ms-input-placeholder {
-  color: #858585;
-}
-
-.theme-light body .App main nav .search input::placeholder {
-  color: #858585;
-}
-
-.theme-dark body .App main nav .search input::-webkit-input-placeholder {
-  color: white;
-}
-
-.theme-dark body .App main nav .search input:-ms-input-placeholder {
-  color: white;
-}
-
-.theme-dark body .App main nav .search input::-ms-input-placeholder {
-  color: white;
-}
-
-.theme-dark body .App main nav .search input::placeholder {
-  color: white;
+body .App main nav .search input::placeholder {
+  color: var(--c-text-sec);
 }
 
 body .App main nav .region {
+  color: var(--c-text-pri);
+  background-color: var(--bg-elements);
   width: 200px;
   height: 56px;
   outline: none;
@@ -177,28 +142,11 @@ body .App main nav .region {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-.theme-light body .App main nav .region {
-  color: #111517;
-  background-color: #fafafa;
-}
-
-.theme-dark body .App main nav .region {
-  color: white;
-  background-color: #202c37;
-}
-
 body .App main nav .region option {
+  background-color: var(--bg-elements);
   margin-top: 5px;
   outline: none;
   border: none;
-}
-
-.theme-light body .App main nav .region option {
-  background-color: #fafafa;
-}
-
-.theme-dark body .App main nav .region option {
-  background-color: #202c37;
 }
 
 body .App main .countries-container {
@@ -211,6 +159,8 @@ body .App main .countries-container {
 }
 
 body .App main .countries-container .country {
+  color: var(--c-text-pri);
+  background-color: var(--bg-elements);
   width: 265px;
   height: 335px;
   border-radius: 5px;
@@ -218,16 +168,6 @@ body .App main .countries-container .country {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   text-decoration: none;
-}
-
-.theme-light body .App main .countries-container .country {
-  color: #111517;
-  background-color: #fafafa;
-}
-
-.theme-dark body .App main .countries-container .country {
-  color: white;
-  background-color: #202c37;
 }
 
 body .App main .countries-container .country .country-description {
@@ -265,6 +205,8 @@ body .App main .countries-container .country img {
 }
 
 body .App main .detail-country-container .btn-back {
+  color: var(--c-text-pri);
+  background-color: var(--bg-elements);
   margin-top: 30px;
   width: 135px;
   height: 40px;
@@ -282,17 +224,8 @@ body .App main .detail-country-container .btn-back {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-.theme-light body .App main .detail-country-container .btn-back {
-  color: #111517;
-  background-color: #fafafa;
-}
-
-.theme-dark body .App main .detail-country-container .btn-back {
-  color: white;
-  background-color: #202c37;
-}
-
 body .App main .detail-country-container .detail-country-data-wrapper {
+  color: var(--c-text-pri);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -303,14 +236,6 @@ body .App main .detail-country-container .detail-country-data-wrapper {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: 80px;
-}
-
-.theme-light body .App main .detail-country-container .detail-country-data-wrapper {
-  color: #111517;
-}
-
-.theme-dark body .App main .detail-country-container .detail-country-data-wrapper {
-  color: white;
 }
 
 body .App main .detail-country-container .detail-country-data-wrapper img {
@@ -389,6 +314,8 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
 }
 
 body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
+  color: var(--c-text-pri);
+  background-color: var(--bg-elements);
   width: 100px;
   height: 30px;
   text-align: center;
@@ -397,16 +324,6 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
   border-radius: 5px;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-}
-
-.theme-light body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
-  color: #111517;
-  background-color: #fafafa;
-}
-
-.theme-dark body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
-  color: white;
-  background-color: #202c37;
 }
 
 body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries div:first-child {
