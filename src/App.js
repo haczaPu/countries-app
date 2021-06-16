@@ -6,13 +6,14 @@ import CountriesList from "./components/CountriesList";
 import Header from "./components/Header";
 import DetailCountry from "./components/DetailCountry";
 import SearchInput from "./components/SearchInput";
+import useLocalStorage from "./components/UseLocalStorage";
 
 function App() {
-  const [allCountries, setAllCountries] = useState([]);
-  const [filteredCountries, setFilteredCountries] = useState([]);
+  const [allCountries, setAllCountries] = useState(null);
+  const [filteredCountries, setFilteredCountries] = useState(null);
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useLocalStorage("darkMode", "light");
 
   // Fetch API data
   useEffect(() => {
@@ -23,51 +24,50 @@ function App() {
       setFilteredCountries(data);
     };
     getCountries();
+    document.body.setAttribute("data-theme", darkMode);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Name filtering
+  //Name filtering
   useEffect(() => {
-    const searchFilteredCountries = allCountries.filter(country => {
-      if (country.region.includes(region)) {
-        return country.name.toLowerCase().includes(search.toLocaleLowerCase());
-      }
-      return false;
-    });
+    const searchFilteredCountries =
+      allCountries &&
+      allCountries.filter(country => {
+        if (country.region.includes(region)) {
+          return country.name.toLowerCase().includes(search.toLocaleLowerCase());
+        }
+        if (country.name.toLowerCase().includes(search.toLocaleLowerCase())) {
+          return country.region.includes(region);
+        }
+        return false;
+      });
     setFilteredCountries(searchFilteredCountries);
-  }, [allCountries, region, search]);
-
-  // Region filtering
-  useEffect(() => {
-    const regionFilteredCountries = allCountries.filter(country => {
-      if (country.name.toLowerCase().includes(search.toLocaleLowerCase())) {
-        return country.region.includes(region);
-      }
-      return false;
-    });
-    setFilteredCountries(regionFilteredCountries);
   }, [allCountries, region, search]);
 
   //Theme toggler
   const handleToggleTheme = () => {
-    if (!darkMode) {
+    if (darkMode === "light") {
       document.body.setAttribute("data-theme", "dark");
-      setDarkMode(true);
+      setDarkMode("dark");
     } else {
       document.body.setAttribute("data-theme", "light");
-      setDarkMode(false);
+      setDarkMode("light");
     }
   };
+
+  //Blocker
+  if (!allCountries || !filteredCountries) return null;
 
   return (
     <div className="App">
       <Router>
         <Route path="/">
-          <Header handleToggleTheme={handleToggleTheme} />
+          <Header handleToggleTheme={handleToggleTheme} darkMode={darkMode} />
         </Route>
         <main>
           <Route path="/" exact>
             <nav>
-              <SearchInput setSearch={setSearch} />
+              <SearchInput setSearch={setSearch} darkMode={darkMode} />
               <RegionSelect setRegion={setRegion} />
             </nav>
           </Route>

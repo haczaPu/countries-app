@@ -6,7 +6,7 @@ const CountriesList = ({ filteredCountries }) => {
   return (
     <div className="countries-container">
       {filteredCountries.map((country, index) => (
-        <Link to={`/${country.name}`} style={{ textDecoration: "none" }} key={index}>
+        <Link to={`/${country.alpha3Code}`} style={{ textDecoration: "none" }} key={index}>
           <Country
             flag={country.flag}
             name={country.name}

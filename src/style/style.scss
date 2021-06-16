@@ -14,7 +14,7 @@ body {
     max-width: 1440px;
 
     header {
-      max-width: 1440px;
+      width: 1440px;
       height: 80px;
       background-color: $bg-elements;
       color: $c-text-pri;
@@ -176,8 +176,9 @@ body {
 
           img {
             width: 560px;
-            height: 400px;
+            max-height: 400px;
             object-fit: contain;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
           }
 
           .detail-country-data {

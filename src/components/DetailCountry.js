@@ -5,8 +5,8 @@ import { useParams } from "react-router-dom";
 const DetailCountry = ({ filteredCountries }) => {
   const { id } = useParams();
 
-  // Find selected country
-  const country = filteredCountries.find(c => c.name === id);
+  //Find selected country
+  const country = filteredCountries.find(c => c.alpha3Code === id);
 
   return (
     <div className="detail-country-container">
@@ -81,7 +81,9 @@ const DetailCountry = ({ filteredCountries }) => {
             <div className="border-countries-links">
               {country.borders.map(bCountry => (
                 <Link to={`/${bCountry}`} style={{ textDecoration: "none" }}>
-                  <div className="border-country-btn">{bCountry}</div>
+                  <div className="border-country-btn">
+                    {filteredCountries.find(c => c.alpha3Code === bCountry).name}
+                  </div>
                 </Link>
               ))}
             </div>
