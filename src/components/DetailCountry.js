@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-const DetailCountry = ({ filteredCountries }) => {
+const DetailCountry = ({ filteredCountries, allCountries, handleBackBtn }) => {
   const { id } = useParams();
 
   //Find selected country
@@ -11,7 +11,7 @@ const DetailCountry = ({ filteredCountries }) => {
   return (
     <div className="detail-country-container">
       <Link to={`/`} style={{ textDecoration: "none" }}>
-        <div className="btn-back">
+        <div className="btn-back" onClick={handleBackBtn}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               fillRule="evenodd"
@@ -59,7 +59,7 @@ const DetailCountry = ({ filteredCountries }) => {
                 Currencies:
                 <div>
                   {country.currencies.map((curr, index) => (
-                    <div>{curr.name}</div>
+                    <div key={index}>{curr.name}</div>
                   ))}
                 </div>
               </li>
@@ -77,15 +77,17 @@ const DetailCountry = ({ filteredCountries }) => {
             </ul>
           </section>
           <div className="border-countries">
-            Border Countries:
+            <div className="border-countries-title">Border Countries:</div>
             <div className="border-countries-links">
-              {country.borders.map(bCountry => (
-                <Link to={`/${bCountry}`} style={{ textDecoration: "none" }}>
-                  <div className="border-country-btn">
-                    {filteredCountries.find(c => c.alpha3Code === bCountry).name}
-                  </div>
-                </Link>
-              ))}
+              {country.borders.length ? (
+                country.borders.map(bCountry => (
+                  <Link to={`/${bCountry}`} style={{ textDecoration: "none" }}>
+                    <div className="border-country-btn">{allCountries.find(c => c.alpha3Code === bCountry).name}</div>
+                  </Link>
+                ))
+              ) : (
+                <div className="border-country-none">---</div>
+              )}
             </div>
           </div>
         </div>

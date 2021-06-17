@@ -55,6 +55,12 @@ function App() {
     }
   };
 
+  //Back to main list
+  const handleBackBtn = () => {
+    setFilteredCountries(allCountries);
+    setSearch("");
+  };
+
   //Blocker
   if (!allCountries || !filteredCountries) return null;
 
@@ -76,7 +82,11 @@ function App() {
               <CountriesList filteredCountries={filteredCountries} />
             </Route>
             <Route path="/:id">
-              <DetailCountry filteredCountries={filteredCountries} />
+              <DetailCountry
+                filteredCountries={filteredCountries}
+                allCountries={allCountries}
+                handleBackBtn={handleBackBtn}
+              />
             </Route>
           </Switch>
         </main>

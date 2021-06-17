@@ -13,7 +13,8 @@ body[data-theme="dark"] {
 }
 
 html {
-  margin-left: calc(100vw - 100%);
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
 }
 
 body {
@@ -22,17 +23,11 @@ body {
   background-color: var(--bg-primary);
 }
 
-body .App {
-  margin: auto;
-  max-width: 1440px;
-}
-
 body .App header {
-  width: 1440px;
+  margin: auto;
   height: 80px;
   background-color: var(--bg-elements);
   color: var(--c-text-pri);
-  padding: 0 80px;
   font-weight: 800;
   font-size: 28px;
   border-radius: 0 0 5px 5px;
@@ -49,14 +44,53 @@ body .App header {
           align-items: center;
 }
 
-body .App header .title {
+body .App header .title-wrapper {
+  margin: auto;
+  width: 1440px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 80px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+  body .App header .title-wrapper {
+    padding: 0 15px;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  body .App header .title-wrapper {
+    padding: 0 55px;
+  }
+}
+
+body .App header .title-wrapper .title {
   -webkit-text-decoration: "none";
           text-decoration: "none";
   color: var(--c-text-pri);
 }
 
-body .App header .title:hover {
+body .App header .title-wrapper .title:hover {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 480px) {
+  body .App header .title-wrapper .title {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  body .App header .title-wrapper .title {
+    font-size: 18px;
+  }
 }
 
 body .App header .theme-toggler {
@@ -70,9 +104,34 @@ body .App header .theme-toggler div {
   display: inline;
 }
 
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  body .App header .theme-toggler div {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body .App header .theme-toggler div {
+    display: none;
+  }
+}
+
 body .App main {
   max-width: 1440px;
   padding: 50px 80px;
+  margin: auto;
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  body .App main {
+    padding: 25px 55px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body .App main {
+    padding: 25px 15px;
+  }
 }
 
 body .App main nav {
@@ -82,6 +141,9 @@ body .App main nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 20px;
 }
 
 body .App main nav .search {
@@ -104,6 +166,7 @@ body .App main nav .search div {
 }
 
 body .App main nav .search input {
+  height: 40px;
   border: none;
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
@@ -130,6 +193,7 @@ body .App main nav .search input::placeholder {
 }
 
 body .App main nav .region {
+  position: relative;
   color: var(--c-text-pri);
   background-color: var(--bg-elements);
   width: 200px;
@@ -137,25 +201,47 @@ body .App main nav .region {
   outline: none;
   border: none;
   border-radius: 5px;
-  padding-left: 18px;
+  padding: 18px;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
 body .App main nav .region option {
+  position: absolute;
+  top: 100px;
   background-color: var(--bg-elements);
-  margin-top: 5px;
-  outline: none;
-  border: none;
+  outline: 0px;
+  border: 0px;
 }
 
 body .App main .countries-container {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(240px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 75px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
   margin-top: 50px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 73px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media screen and (max-width: 480px) {
+  body .App main .countries-container {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 35px;
+    gap: 40px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 body .App main .countries-container .country {
@@ -204,6 +290,20 @@ body .App main .countries-container .country img {
   overflow: hidden;
 }
 
+body .App main .info-results {
+  color: var(--c-text-pri);
+  font-size: 30px;
+  padding-top: 60px;
+  text-align: center;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 480px) {
+  body .App main .detail-country-container {
+    margin: 0 13px;
+  }
+}
+
 body .App main .detail-country-container .btn-back {
   color: var(--c-text-pri);
   background-color: var(--bg-elements);
@@ -229,22 +329,66 @@ body .App main .detail-country-container .detail-country-data-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 80px;
+  margin: 80px 0;
+}
+
+@media screen and (max-width: 480px) {
+  body .App main .detail-country-container .detail-country-data-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 30px 0;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  body .App main .detail-country-container .detail-country-data-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 60px;
+  }
 }
 
 body .App main .detail-country-container .detail-country-data-wrapper img {
-  width: 560px;
-  max-height: 400px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  width: 600px;
+  height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width: 480px) {
+  body .App main .detail-country-container .detail-country-data-wrapper img {
+    width: 100%;
+    height: auto;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  body .App main .detail-country-container .detail-country-data-wrapper img {
+    width: 100%;
+    height: auto;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 769px) {
+  body .App main .detail-country-container .detail-country-data-wrapper img {
+    width: 50%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
 }
 
 body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data {
@@ -256,6 +400,27 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-left: 50px;
+}
+
+@media screen and (max-width: 480px) {
+  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data {
+    margin-top: 50px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data {
+    margin-top: 50px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 769px) {
+  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data {
+    margin-left: 50px;
+  }
 }
 
 body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section {
@@ -263,6 +428,33 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
   display: -ms-flexbox;
   display: flex;
   margin-top: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 769px) {
+  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul {
@@ -279,6 +471,27 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
   margin-left: 100px;
 }
 
+@media screen and (max-width: 480px) {
+  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul:last-child {
+    margin-top: 50px;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul:last-child {
+    margin-top: 50px;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 769px) {
+  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul:last-child {
+    margin-top: 50px;
+    margin-left: 0;
+  }
+}
+
 body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -292,8 +505,8 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
   font-weight: 300;
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li div::before {
-  content: "\2002";
+body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li div:last-child {
+  padding-left: 5px;
 }
 
 body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li .country-languages {
@@ -304,31 +517,92 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
 
 body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries {
   margin-top: 60px;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
+@media screen and (max-width: 480px) {
+  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries {
+    margin-top: 40px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries {
+    margin-top: 40px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 769px) {
+  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries {
+    margin-top: 40px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-title {
+  width: 150px;
+  font-weight: 600;
+  padding-top: 12px;
+}
+
 body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
   color: var(--c-text-pri);
   background-color: var(--bg-elements);
-  width: 100px;
   height: 30px;
   text-align: center;
-  padding-top: 3px;
-  margin-left: 10px;
+  padding: 5px 15px;
+  margin: 10px 0 0 10px;
   border-radius: 5px;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries div:first-child {
-  font-weight: 300;
+@media screen and (max-width: 480px) {
+  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
+    margin: 10px 10px 0 0;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
+    margin: 10px 10px 0 0;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 769px) {
+  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
+    margin: 10px 10px 0 0;
+  }
+}
+
+body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-none {
+  color: var(--c-text-pri);
+  text-align: center;
+  padding: 12px 0;
 }
 /*# sourceMappingURL=style.css.map */

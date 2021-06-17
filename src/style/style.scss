@@ -1,7 +1,9 @@
 @import "vars";
+@import "breakpoints";
 
 html {
-  margin-left: calc(100vw - 100%);
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
 }
 
 body {
@@ -10,15 +12,11 @@ body {
   background-color: $bg-primary;
 
   .App {
-    margin: auto;
-    max-width: 1440px;
-
     header {
-      width: 1440px;
+      margin: auto;
       height: 80px;
       background-color: $bg-elements;
       color: $c-text-pri;
-      padding: 0 80px;
       font-weight: 800;
       font-size: 28px;
       border-radius: 0 0 5px 5px;
@@ -27,11 +25,32 @@ body {
       justify-content: space-between;
       align-items: center;
 
-      .title {
-        text-decoration: "none";
-        color: $c-text-pri;
-        &:hover {
-          text-decoration: underline;
+      .title-wrapper {
+        margin: auto;
+        width: 1440px;
+        display: flex;
+        padding: 0 80px;
+        justify-content: space-between;
+        align-items: center;
+        @include breakpoint(mobile) {
+          padding: 0 15px;
+        }
+        @include breakpoint(tablet) {
+          padding: 0 55px;
+        }
+
+        .title {
+          text-decoration: "none";
+          color: $c-text-pri;
+          &:hover {
+            text-decoration: underline;
+          }
+          @include breakpoint(mobile) {
+            font-size: 14px;
+          }
+          @include breakpoint(tablet) {
+            font-size: 18px;
+          }
         }
       }
 
@@ -43,6 +62,12 @@ body {
         div {
           padding-left: 10px;
           display: inline;
+          @include breakpoint(tablet) {
+            font-size: 15px;
+          }
+          @include breakpoint(mobile) {
+            display: none;
+          }
         }
       }
     }
@@ -50,14 +75,22 @@ body {
     main {
       max-width: 1440px;
       padding: 50px 80px;
+      margin: auto;
+      @include breakpoint(tablet) {
+        padding: 25px 55px;
+      }
+      @include breakpoint(mobile) {
+        padding: 25px 15px;
+      }
 
       nav {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
 
         .search {
           background-color: $bg-elements;
-
           border-radius: 5px;
           width: 500px;
           height: 56px;
@@ -70,6 +103,7 @@ body {
           }
 
           input {
+            height: 40px;
             border: none;
             font-family: "Nunito Sans", sans-serif;
             font-weight: 300;
@@ -84,6 +118,7 @@ body {
         }
 
         .region {
+          position: relative;
           color: $c-text-pri;
           background-color: $bg-elements;
           width: 200px;
@@ -91,23 +126,33 @@ body {
           outline: none;
           border: none;
           border-radius: 5px;
-          padding-left: 18px;
+          padding: 18px;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 
           option {
+            position: absolute;
+            top: 100px;
             background-color: $bg-elements;
-            margin-top: 5px;
-            outline: none;
-            border: none;
+            outline: 0px;
+            border: 0px;
           }
         }
       }
 
       .countries-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 75px;
+        display: flex;
+        width: 100%;
         margin-top: 50px;
+        flex-wrap: wrap;
+        gap: 73px;
+        justify-content: space-between;
+        @include breakpoint(mobile) {
+          flex-wrap: nowrap;
+          flex-direction: column;
+          margin-top: 35px;
+          gap: 40px;
+          align-items: center;
+        }
 
         .country {
           color: $c-text-pri;
@@ -118,6 +163,8 @@ body {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
           overflow: hidden;
           text-decoration: none;
+          @include breakpoint(mobile) {
+          }
 
           .country-description {
             padding: 0 25px;
@@ -151,8 +198,18 @@ body {
           }
         }
       }
+      .info-results {
+        color: $c-text-pri;
+        font-size: 30px;
+        padding-top: 60px;
+        text-align: center;
+        font-weight: 600;
+      }
 
       .detail-country-container {
+        @include breakpoint(mobile) {
+          margin: 0 13px;
+        }
         .btn-back {
           color: $c-text-pri;
           background-color: $bg-elements;
@@ -170,32 +227,86 @@ body {
         .detail-country-data-wrapper {
           color: $c-text-pri;
           display: flex;
-          align-items: center;
           justify-content: space-between;
-          margin-top: 80px;
+          margin: 80px 0;
+          @include breakpoint(mobile) {
+            flex-direction: column;
+            margin: 30px 0;
+          }
+          @include breakpoint(tablet) {
+            flex-direction: column;
+            margin-top: 60px;
+          }
 
           img {
-            width: 560px;
-            max-height: 400px;
-            object-fit: contain;
+            width: 600px;
+            height: 400px;
+            object-fit: cover;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+            @include breakpoint(mobile) {
+              width: 100%;
+              height: auto;
+              object-fit: contain;
+            }
+            @include breakpoint(tablet) {
+              width: 100%;
+              height: auto;
+              object-fit: contain;
+            }
+            @include breakpoint(laptop) {
+              width: 50%;
+              height: 100%;
+              object-fit: contain;
+            }
           }
 
           .detail-country-data {
             width: 560px;
             display: flex;
             flex-direction: column;
+            margin-left: 50px;
+            @include breakpoint(mobile) {
+              margin-top: 50px;
+              width: 100%;
+            }
+            @include breakpoint(tablet) {
+              margin-top: 50px;
+              width: 100%;
+            }
+            @include breakpoint(laptop) {
+              margin-left: 50px;
+            }
 
             section {
               display: flex;
               margin-top: 20px;
-
+              @include breakpoint(mobile) {
+                flex-direction: column;
+              }
+              @include breakpoint(tablet) {
+                flex-direction: column;
+              }
+              @include breakpoint(laptop) {
+                flex-direction: column;
+              }
               ul {
                 display: flex;
                 flex-direction: column;
 
                 &:last-child {
                   margin-left: 100px;
+                  @include breakpoint(mobile) {
+                    margin-top: 50px;
+                    margin-left: 0;
+                  }
+                  @include breakpoint(tablet) {
+                    margin-top: 50px;
+                    margin-left: 0;
+                  }
+                  @include breakpoint(laptop) {
+                    margin-top: 50px;
+                    margin-left: 0;
+                  }
                 }
 
                 li {
@@ -206,8 +317,9 @@ body {
 
                   div {
                     font-weight: 300;
-                    &::before {
-                      content: "\2002";
+
+                    &:last-child {
+                      padding-left: 5px;
                     }
                   }
 
@@ -220,26 +332,57 @@ body {
 
             .border-countries {
               margin-top: 60px;
+              width: 100%;
               display: flex;
+              @include breakpoint(mobile) {
+                margin-top: 40px;
+                flex-direction: column;
+              }
+              @include breakpoint(tablet) {
+                margin-top: 40px;
+                flex-direction: column;
+              }
+              @include breakpoint(laptop) {
+                margin-top: 40px;
+                flex-direction: column;
+              }
+
+              .border-countries-title {
+                width: 150px;
+                font-weight: 600;
+                padding-top: 12px;
+              }
 
               .border-countries-links {
+                flex: 1;
                 display: flex;
+                flex-wrap: wrap;
 
                 .border-country-btn {
                   color: $c-text-pri;
                   background-color: $bg-elements;
-                  width: 100px;
                   height: 30px;
                   text-align: center;
-                  padding-top: 3px;
-                  margin-left: 10px;
+                  padding: 5px 15px;
+                  margin: 10px 0 0 10px;
                   border-radius: 5px;
                   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+                  @include breakpoint(mobile) {
+                    margin: 10px 10px 0 0;
+                  }
+                  @include breakpoint(tablet) {
+                    margin: 10px 10px 0 0;
+                  }
+                  @include breakpoint(laptop) {
+                    margin: 10px 10px 0 0;
+                  }
                 }
-              }
 
-              div:first-child {
-                font-weight: 300;
+                .border-country-none {
+                  color: $c-text-pri;
+                  text-align: center;
+                  padding: 12px 0;
+                }
               }
             }
           }
