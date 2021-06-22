@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import DetailCountry from "./components/DetailCountry";
 import SearchInput from "./components/SearchInput";
 import useLocalStorage from "./components/UseLocalStorage";
+import ReactLoading from "react-loading";
 
 function App() {
   const [allCountries, setAllCountries] = useState(null);
@@ -14,6 +15,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("");
   const [darkMode, setDarkMode] = useLocalStorage("darkMode", "light");
+  const [isLoading, setIsLoading] = useState(true);
 
   // Fetch API data
   useEffect(() => {
@@ -22,6 +24,7 @@ function App() {
       const data = await response.json();
       setAllCountries(data);
       setFilteredCountries(data);
+      setIsLoading(false);
     };
     getCountries();
     document.body.setAttribute("data-theme", darkMode);
@@ -61,15 +64,13 @@ function App() {
     setSearch("");
   };
 
-  //Blocker
-  if (!allCountries || !filteredCountries) return null;
-
   return (
     <div className="App">
       <Router>
         <Route path="/">
           <Header handleToggleTheme={handleToggleTheme} darkMode={darkMode} />
         </Route>
+
         <main>
           <Route path="/" exact>
             <nav>
@@ -79,7 +80,19 @@ function App() {
           </Route>
           <Switch>
             <Route path="/" exact>
-              <CountriesList filteredCountries={filteredCountries} />
+              {isLoading ? (
+                <div className="loader-container">
+                  <ReactLoading
+                    className="loader"
+                    type={"bubbles"}
+                    color={darkMode === "dark" ? "#ffffff" : "hsl(0, 0%, 52%)"}
+                    height={"150px"}
+                    width={"150px"}
+                  />
+                </div>
+              ) : (
+                <CountriesList filteredCountries={filteredCountries} />
+              )}
             </Route>
             <Route path="/:id">
               <DetailCountry

@@ -23,7 +23,7 @@ body {
   background-color: var(--bg-primary);
 }
 
-body .App header {
+.App header {
   margin: auto;
   height: 80px;
   background-color: var(--bg-elements);
@@ -44,7 +44,7 @@ body .App header {
           align-items: center;
 }
 
-body .App header .title-wrapper {
+.App header .title-wrapper {
   margin: auto;
   width: 1440px;
   display: -webkit-box;
@@ -60,81 +60,81 @@ body .App header .title-wrapper {
 }
 
 @media screen and (max-width: 480px) {
-  body .App header .title-wrapper {
+  .App header .title-wrapper {
     padding: 0 15px;
   }
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
-  body .App header .title-wrapper {
+  .App header .title-wrapper {
     padding: 0 55px;
   }
 }
 
-body .App header .title-wrapper .title {
+.App header .title-wrapper .title {
   -webkit-text-decoration: "none";
           text-decoration: "none";
   color: var(--c-text-pri);
 }
 
-body .App header .title-wrapper .title:hover {
+.App header .title-wrapper .title:hover {
   text-decoration: underline;
 }
 
 @media screen and (max-width: 480px) {
-  body .App header .title-wrapper .title {
+  .App header .title-wrapper .title {
     font-size: 14px;
   }
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
-  body .App header .title-wrapper .title {
+  .App header .title-wrapper .title {
     font-size: 18px;
   }
 }
 
-body .App header .theme-toggler {
+.App header .theme-toggler {
   cursor: pointer;
   font-size: 18px;
   font-weight: 600;
 }
 
-body .App header .theme-toggler div {
+.App header .theme-toggler div {
   padding-left: 10px;
   display: inline;
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
-  body .App header .theme-toggler div {
+  .App header .theme-toggler div {
     font-size: 15px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  body .App header .theme-toggler div {
+  .App header .theme-toggler div {
     display: none;
   }
 }
 
-body .App main {
+.App main {
   max-width: 1440px;
   padding: 50px 80px;
   margin: auto;
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
-  body .App main {
+  .App main {
     padding: 25px 55px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  body .App main {
+  .App main {
     padding: 25px 15px;
   }
 }
 
-body .App main nav {
+.App main nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -146,7 +146,7 @@ body .App main nav {
   gap: 20px;
 }
 
-body .App main nav .search {
+.App main nav .search {
   background-color: var(--bg-elements);
   border-radius: 5px;
   width: 500px;
@@ -161,11 +161,11 @@ body .App main nav .search {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-body .App main nav .search div {
+.App main nav .search div {
   padding-left: 30px;
 }
 
-body .App main nav .search input {
+.App main nav .search input {
   height: 40px;
   border: none;
   font-family: "Nunito Sans", sans-serif;
@@ -176,23 +176,23 @@ body .App main nav .search input {
   background-color: var(--bg-elements);
 }
 
-body .App main nav .search input::-webkit-input-placeholder {
+.App main nav .search input::-webkit-input-placeholder {
   color: var(--c-text-sec);
 }
 
-body .App main nav .search input:-ms-input-placeholder {
+.App main nav .search input:-ms-input-placeholder {
   color: var(--c-text-sec);
 }
 
-body .App main nav .search input::-ms-input-placeholder {
+.App main nav .search input::-ms-input-placeholder {
   color: var(--c-text-sec);
 }
 
-body .App main nav .search input::placeholder {
+.App main nav .search input::placeholder {
   color: var(--c-text-sec);
 }
 
-body .App main nav .region {
+.App main nav .region {
   position: relative;
   color: var(--c-text-pri);
   background-color: var(--bg-elements);
@@ -206,7 +206,7 @@ body .App main nav .region {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-body .App main nav .region option {
+.App main nav .region option {
   position: absolute;
   top: 100px;
   background-color: var(--bg-elements);
@@ -214,7 +214,27 @@ body .App main nav .region option {
   border: 0px;
 }
 
-body .App main .countries-container {
+.App main .loader-container {
+  height: 500px;
+  width: 100%;
+  margin-top: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.App main .loader-container .loader {
+  height: 150px;
+  width: 150px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.App main .countries-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -229,7 +249,7 @@ body .App main .countries-container {
 }
 
 @media screen and (max-width: 480px) {
-  body .App main .countries-container {
+  .App main .countries-container {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
     -webkit-box-orient: vertical;
@@ -244,7 +264,7 @@ body .App main .countries-container {
   }
 }
 
-body .App main .countries-container .country {
+.App main .countries-container .country {
   color: var(--c-text-pri);
   background-color: var(--bg-elements);
   width: 265px;
@@ -256,17 +276,17 @@ body .App main .countries-container .country {
   text-decoration: none;
 }
 
-body .App main .countries-container .country .country-description {
+.App main .countries-container .country .country-description {
   padding: 0 25px;
 }
 
-body .App main .countries-container .country .country-description .country-description-name {
+.App main .countries-container .country .country-description .country-description-name {
   padding: 15px 0;
   font-size: 18px;
   font-weight: 800;
 }
 
-body .App main .countries-container .country .country-description li {
+.App main .countries-container .country .country-description li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -274,15 +294,15 @@ body .App main .countries-container .country .country-description li {
   line-height: 25px;
 }
 
-body .App main .countries-container .country .country-description li div:first-child {
+.App main .countries-container .country .country-description li div:first-child {
   font-weight: 300;
 }
 
-body .App main .countries-container .country .country-description li div:first-child::before {
+.App main .countries-container .country .country-description li div:first-child::before {
   content: "\2002";
 }
 
-body .App main .countries-container .country img {
+.App main .countries-container .country img {
   width: 100%;
   height: 165px;
   -o-object-fit: cover;
@@ -290,7 +310,7 @@ body .App main .countries-container .country img {
   overflow: hidden;
 }
 
-body .App main .info-results {
+.App main .info-results {
   color: var(--c-text-pri);
   font-size: 30px;
   padding-top: 60px;
@@ -299,12 +319,12 @@ body .App main .info-results {
 }
 
 @media screen and (max-width: 480px) {
-  body .App main .detail-country-container {
+  .App main .detail-country-container {
     margin: 0 13px;
   }
 }
 
-body .App main .detail-country-container .btn-back {
+.App main .detail-country-container .btn-back {
   color: var(--c-text-pri);
   background-color: var(--bg-elements);
   margin-top: 30px;
@@ -324,7 +344,7 @@ body .App main .detail-country-container .btn-back {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper {
+.App main .detail-country-container .detail-country-data-wrapper {
   color: var(--c-text-pri);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -336,7 +356,7 @@ body .App main .detail-country-container .detail-country-data-wrapper {
 }
 
 @media screen and (max-width: 480px) {
-  body .App main .detail-country-container .detail-country-data-wrapper {
+  .App main .detail-country-container .detail-country-data-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -346,7 +366,7 @@ body .App main .detail-country-container .detail-country-data-wrapper {
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
-  body .App main .detail-country-container .detail-country-data-wrapper {
+  .App main .detail-country-container .detail-country-data-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -355,7 +375,7 @@ body .App main .detail-country-container .detail-country-data-wrapper {
   }
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper img {
+.App main .detail-country-container .detail-country-data-wrapper img {
   width: 600px;
   height: 400px;
   -o-object-fit: cover;
@@ -365,7 +385,7 @@ body .App main .detail-country-container .detail-country-data-wrapper img {
 }
 
 @media screen and (max-width: 480px) {
-  body .App main .detail-country-container .detail-country-data-wrapper img {
+  .App main .detail-country-container .detail-country-data-wrapper img {
     width: 100%;
     height: auto;
     -o-object-fit: contain;
@@ -374,7 +394,7 @@ body .App main .detail-country-container .detail-country-data-wrapper img {
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
-  body .App main .detail-country-container .detail-country-data-wrapper img {
+  .App main .detail-country-container .detail-country-data-wrapper img {
     width: 100%;
     height: auto;
     -o-object-fit: contain;
@@ -383,7 +403,7 @@ body .App main .detail-country-container .detail-country-data-wrapper img {
 }
 
 @media screen and (max-width: 1200px) and (min-width: 769px) {
-  body .App main .detail-country-container .detail-country-data-wrapper img {
+  .App main .detail-country-container .detail-country-data-wrapper img {
     width: 50%;
     height: 100%;
     -o-object-fit: contain;
@@ -391,7 +411,7 @@ body .App main .detail-country-container .detail-country-data-wrapper img {
   }
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data {
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data {
   width: 560px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -404,26 +424,26 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
 }
 
 @media screen and (max-width: 480px) {
-  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data {
+  .App main .detail-country-container .detail-country-data-wrapper .detail-country-data {
     margin-top: 50px;
     width: 100%;
   }
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
-  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data {
+  .App main .detail-country-container .detail-country-data-wrapper .detail-country-data {
     margin-top: 50px;
     width: 100%;
   }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 769px) {
-  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data {
+  .App main .detail-country-container .detail-country-data-wrapper .detail-country-data {
     margin-left: 50px;
   }
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section {
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -431,7 +451,7 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
 }
 
 @media screen and (max-width: 480px) {
-  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section {
+  .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -440,7 +460,7 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
-  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section {
+  .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -449,7 +469,7 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
 }
 
 @media screen and (max-width: 1200px) and (min-width: 769px) {
-  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section {
+  .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -457,7 +477,7 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
   }
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul {
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -467,32 +487,32 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
           flex-direction: column;
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul:last-child {
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul:last-child {
   margin-left: 100px;
 }
 
 @media screen and (max-width: 480px) {
-  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul:last-child {
+  .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul:last-child {
     margin-top: 50px;
     margin-left: 0;
   }
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
-  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul:last-child {
+  .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul:last-child {
     margin-top: 50px;
     margin-left: 0;
   }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 769px) {
-  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul:last-child {
+  .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul:last-child {
     margin-top: 50px;
     margin-left: 0;
   }
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li {
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -501,21 +521,21 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
   margin-top: 5px;
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li div {
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li div {
   font-weight: 300;
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li div:last-child {
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li div:last-child {
   padding-left: 5px;
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li .country-languages {
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data section ul li .country-languages {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries {
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries {
   margin-top: 60px;
   width: 100%;
   display: -webkit-box;
@@ -524,7 +544,7 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
 }
 
 @media screen and (max-width: 480px) {
-  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries {
+  .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries {
     margin-top: 40px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -534,7 +554,7 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
-  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries {
+  .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries {
     margin-top: 40px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -544,7 +564,7 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
 }
 
 @media screen and (max-width: 1200px) and (min-width: 769px) {
-  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries {
+  .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries {
     margin-top: 40px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -553,13 +573,13 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
   }
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-title {
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-title {
   width: 150px;
   font-weight: 600;
   padding-top: 12px;
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links {
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -570,7 +590,7 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
       flex-wrap: wrap;
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
   color: var(--c-text-pri);
   background-color: var(--bg-elements);
   height: 30px;
@@ -583,24 +603,24 @@ body .App main .detail-country-container .detail-country-data-wrapper .detail-co
 }
 
 @media screen and (max-width: 480px) {
-  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
+  .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
     margin: 10px 10px 0 0;
   }
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
-  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
+  .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
     margin: 10px 10px 0 0;
   }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 769px) {
-  body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
+  .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-btn {
     margin: 10px 10px 0 0;
   }
 }
 
-body .App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-none {
+.App main .detail-country-container .detail-country-data-wrapper .detail-country-data .border-countries .border-countries-links .border-country-none {
   color: var(--c-text-pri);
   text-align: center;
   padding: 12px 0;
