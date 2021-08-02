@@ -9,9 +9,9 @@ const Header = ({ handleToggleTheme, darkMode }) => {
         <Link to={`/`} style={{ textDecoration: "none" }}>
           <div className="title">Where in the world?</div>
         </Link>
-        <div className="theme-toggler">
+        <div className="theme-toggler" onClick={handleToggleTheme}>
           {darkMode === "light" ? <FaRegMoon size={14} /> : <FaMoon size={14} />}
-          <div onClick={handleToggleTheme}>Dark Mode</div>
+          <div>Dark Mode</div>
         </div>
       </div>
     </header>
