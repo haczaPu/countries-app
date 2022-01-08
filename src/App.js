@@ -20,7 +20,7 @@ function App() {
   // Fetch API data
   useEffect(() => {
     const getCountries = async () => {
-      const response = await fetch("https://restcountries.eu/rest/v2/all");
+      const response = await fetch("https://restcountries.com/v2/all");
       const data = await response.json();
       setAllCountries(data);
       setFilteredCountries(data);
